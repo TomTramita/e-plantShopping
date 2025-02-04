@@ -40,6 +40,7 @@ body {
     color: white;
     font-size: 30px;
     text-decoration: none;
+    text-align: right;
    
 }
 
@@ -142,7 +143,14 @@ body {
 .tag_home_link_h3{
     font-size: 30px;
     text-align: left;
-    color:#fff;}
+    color:#fff;
+}
+.tag_home_link_p{
+    font-size: 16px;
+    text-align: left;
+    color:#fff;
+}
+
 .tag a{
     text-decoration: none;
 }
