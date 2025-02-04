@@ -20,7 +20,8 @@ const CartItem = ({ onContinueShopping }) => {
   // Handle continue shopping button click
   const handleContinueShopping = (e) => {
     e.preventDefault();
-    onContinueShopping(); // Call the function passed from the parent component
+    setShowCart(false); // Hide the cart and show the plant listing
+    setShowPlants(true);
   };
 
   // Handle increment button click

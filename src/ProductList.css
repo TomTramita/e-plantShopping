@@ -76,7 +76,7 @@ body {
 
 /* Pseudo-classes - Hover effect on product button */
 .product-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.025);
     transition: transform 0.3s ease-in-out;
     z-index: 1;
 }
@@ -215,7 +215,7 @@ body {
     background-color: #45a049;
   }
   
-  .product-button.added-to-cart {
+  .product-button.added {
     background-color: grey; /* Grey when product is added */
   }
   @media (max-width: 1200px) {
