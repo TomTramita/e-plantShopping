@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProductList.css';
 import CartItem from './CartItem';
 import { addItem } from './CartSlice';
@@ -16,6 +16,17 @@ function ProductList() {
 
   // Calculate the total number of items in the cart
   const totalItemsInCart = cart.reduce((total, item) => total + item.quantity, 0);
+
+  // Update addedToCart state when cart changes
+  useEffect(() => {
+    const updatedAddedToCart = { ...addedToCart };
+    Object.keys(updatedAddedToCart).forEach((productName) => {
+      if (!cart.some((item) => item.name === productName)) {
+        delete updatedAddedToCart[productName]; // Remove product from addedToCart if it's no longer in the cart
+      }
+    });
+    setAddedToCart(updatedAddedToCart);
+  }, [cart]); // Run this effect whenever the cart changes
 
   // Plant data
   const plantsArray = [
@@ -284,7 +295,7 @@ function ProductList() {
   return (
     <div>
       {/* Navbar */}
-      <div className="navbar">
+      <div className="navbar" style={styleObj}>
         <div className="tag">
           <div className="luxury">
             <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
@@ -296,14 +307,14 @@ function ProductList() {
             </a>
           </div>
         </div>
-        <ul class="ul">
+        <div style={styleObjUl}>
           <div>
-            <a href="#" onClick={(e) => handlePlantsClick(e)} className="navbar div a">
+            <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>
               Plants
             </a>
           </div>
           <div>
-            <a href="#" onClick={(e) => handleCartClick(e)}>
+            <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
               <h1 className="cart">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -330,7 +341,7 @@ function ProductList() {
               </h1>
             </a>
           </div>
-        </ul>
+        </div>
       </div>
 
       {/* Display either the plant listing or the cart */}
@@ -346,7 +357,8 @@ function ProductList() {
                     <div className="product-title">{plant.name}</div>
                     <div className="product-description">{plant.description}</div>
                     <div className="product-cost">{plant.cost}</div>
-                    <button className={`product-button ${addedToCart[plant.name] ? 'added' : ''}`}
+                    <button
+                      className={`product-button ${addedToCart[plant.name] ? 'added' : ''}`}
                       onClick={() => handleAddToCart(plant)}
                       disabled={addedToCart[plant.name]} // Disable button if item is already in cart
                     >
@@ -364,6 +376,5 @@ function ProductList() {
     </div>
   );
 }
-
 
 export default ProductList;
