@@ -6,7 +6,6 @@ import './CartItem.css';
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector((state) => state.cart.items); // Retrieve cart items from the Redux store
   const dispatch = useDispatch(); // Hook to dispatch actions
-
   // Calculate the total cost of all items in the cart
   const calculateTotalAmount = () => {
     return cart
@@ -87,7 +86,7 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
       <div style={{ marginTop: '20px', color: 'black' }} className="total_cart_amount"></div>
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>
+        <button className="get-started-button" onClick={(e) => onContinueShopping(e)}>
           Continue Shopping
         </button>
         <br />

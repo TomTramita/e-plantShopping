@@ -255,8 +255,8 @@ function ProductList() {
   // Handle continue shopping button click
   const handleContinueShopping = (e) => {
     e.preventDefault();
-    setShowCart(false); // Hide the cart and show the plant listing
-    setShowPlants(true);
+    setShowCart(false); // Hide the cart
+    setShowPlants(true); // Show the plant listing
   };
 
   // Handle add to cart button click
