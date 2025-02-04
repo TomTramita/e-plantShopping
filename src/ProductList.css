@@ -2,6 +2,7 @@
 body, h1, ul {
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 /* Set a background color */
@@ -49,6 +50,8 @@ body {
     width: 100vw;
     align-items: center;
     justify-content: center;
+    margin: 120px 0px;
+    gap: 80px;
 }
 .product-list {
     display: flex;
@@ -136,9 +139,10 @@ body {
     text-decoration: none;
     font-size: 20px;
 }
-.tag_home_link h3{
+.tag_home_link_h3{
     font-size: 30px;
-}
+    text-align: left;
+    color:#fff;}
 .tag a{
     text-decoration: none;
 }
@@ -147,13 +151,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 40px;
 }
 
 .tag img {
     height: 70px;
     width: 70px;
     border-radius: 70%;
-    
+    margin: 10px;
 }
 
 .luxury {
